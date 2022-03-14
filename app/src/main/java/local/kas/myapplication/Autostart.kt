@@ -11,10 +11,10 @@ class Autostart : BroadcastReceiver() {
 //        NotificationHelper.instance.notify("${intent.action}")
         val intentService = Intent(context, SpyService::class.java)
         try {
-            Log.d("ChoreographerKt", "14")
+
             context.startService(intentService)
         } catch (e: Exception) {
-            Log.d("ChoreographerKt", "17")
+
             context.startForegroundService(intentService)
         }
 

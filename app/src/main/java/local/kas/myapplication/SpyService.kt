@@ -27,11 +27,11 @@ class SpyService : Service() {
             override fun onProviderEnabled(provider: String) {}
             override fun onProviderDisabled(provider: String) {}
             override fun onLocationChanged(location: Location) {
-                Log.d("ChoreographerKt", "30")
+
                 val coordinates = "coordinates : ${location.latitude} ${location.longitude}"
-                Log.d("ChoreographerKt", "32")
+
                 Log.d("ChoreographerKt", coordinates)
-                Log.d("ChoreographerKt", "34")
+
             }
         }
 
@@ -40,15 +40,15 @@ class SpyService : Service() {
                 Manifest.permission.ACCESS_FINE_LOCATION
             ) == PackageManager.PERMISSION_GRANTED
         ) {
-            Log.d("ChoreographerKt", "43")
+//            Log.d("ChoreographerKt", "43")
             if (ActivityCompat.checkSelfPermission(
                     this,
                     Manifest.permission.ACCESS_COARSE_LOCATION
                 ) == PackageManager.PERMISSION_GRANTED
             ) {
-                Log.d("ChoreographerKt", "49")
+//                Log.d("ChoreographerKt", "49")
                 val allProviders = locationManager.allProviders
-                Log.d("ChoreographerKt", "51")
+//                Log.d("ChoreographerKt", "51")
                 if (allProviders.contains(LocationManager.NETWORK_PROVIDER)) {
                     locationManager.requestLocationUpdates(
                         LocationManager.NETWORK_PROVIDER, 0,
@@ -63,7 +63,7 @@ class SpyService : Service() {
                         locationListener
                     )
                 }
-                Log.d("ChoreographerKt", "66")
+//                Log.d("ChoreographerKt", "66")
             } else {
                 Log.d("ChoreographerKt", "68")
             }
