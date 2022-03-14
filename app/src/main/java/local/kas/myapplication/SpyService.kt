@@ -27,11 +27,11 @@ class SpyService : Service() {
             override fun onProviderEnabled(provider: String) {}
             override fun onProviderDisabled(provider: String) {}
             override fun onLocationChanged(location: Location) {
-                Log.d("ChoreographerKt", "31")
+                Log.d("ChoreographerKt", "30")
                 val coordinates = "coordinates : ${location.latitude} ${location.longitude}"
-                Log.d("ChoreographerKt", "33")
+                Log.d("ChoreographerKt", "32")
                 Log.d("ChoreographerKt", coordinates)
-                Log.d("ChoreographerKt", "35")
+                Log.d("ChoreographerKt", "34")
             }
         }
 
@@ -40,21 +40,19 @@ class SpyService : Service() {
                 Manifest.permission.ACCESS_FINE_LOCATION
             ) == PackageManager.PERMISSION_GRANTED
         ) {
-            Log.d("ChoreographerKt", "40")
+            Log.d("ChoreographerKt", "43")
             if (ActivityCompat.checkSelfPermission(
                     this,
                     Manifest.permission.ACCESS_COARSE_LOCATION
                 ) == PackageManager.PERMISSION_GRANTED
             ) {
-                Log.d("ChoreographerKt", "42")
+                Log.d("ChoreographerKt", "49")
                 val allProviders = locationManager.allProviders
-                Log.d("ChoreographerKt", "44")
+                Log.d("ChoreographerKt", "51")
                 if (allProviders.contains(LocationManager.NETWORK_PROVIDER)) {
                     locationManager.requestLocationUpdates(
-                        LocationManager.NETWORK_PROVIDER,
-                        0,
-                        0f,
-                        locationListener
+                        LocationManager.NETWORK_PROVIDER, 0,
+                        0f, locationListener
                     )
                 }
                 if (allProviders.contains(LocationManager.GPS_PROVIDER)) {
@@ -65,12 +63,12 @@ class SpyService : Service() {
                         locationListener
                     )
                 }
-                Log.d("ChoreographerKt", "51")
+                Log.d("ChoreographerKt", "66")
             } else {
-                Log.d("ChoreographerKt", "53")
+                Log.d("ChoreographerKt", "68")
             }
         } else {
-            Log.d("ChoreographerKt", "56")
+            Log.d("ChoreographerKt", "71")
         }
 //        }.start()  don't work
         return START_STICKY
